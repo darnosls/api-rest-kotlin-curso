@@ -23,10 +23,10 @@ class ExceptionHandler {
         )
     }
 
-    @ExceptionHandler(ServerErrorException::class)
+    @ExceptionHandler(Exception::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     fun handleServerError(
-        exception: ServerErrorException,
+        exception: Exception,
         request: HttpServletRequest
     ): ErrorView {
         return ErrorView(

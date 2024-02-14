@@ -70,7 +70,7 @@ class TopicoService(
     fun deletar(id: Long) {
         val topico = topicos.stream().filter { t ->
             t.id == id
-        }.findFirst().orElseThrow{ServerErrorException()}
+        }.findFirst().orElseThrow {NotFoundException(notFoundMessage)}
 
         topicos = topicos.minus(topico)
     }
